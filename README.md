@@ -2,20 +2,20 @@
 Making a social app 
 
 ## :interrobang: Why use this mixture of technology?
-Main reason is to learn Next.js, Typescript, and practice ASP.Net
+Main reason is to learn Next.js, Typescript, and practice ASP.Net.
 
-## :bar_chart: Performance Speculation
+## 📉 Performance Speculation
 Probably much better off with either double down on Blazor Server App or Next.js as we won't have to deal with 2 programming languages for 1 project. 
 
-Most cool 'thing' for web development are made in JS though and Blazor does not do a good job of keeping developers away from JS.
+Most cool 'things' for web development are made in JS though and Blazor(net7) does not do a good job of keeping developers away from JS atm.
 
 ## :white_check_mark: Requirements
 We are using MySQL in this journey
 ```bash
 $ node --version
-v18.16.0
+v18.18.0
 $ dotnet --version
-7.0.203
+7.0.401
 $ dotnet tool install --global dotnet-ef # This install entity framework globally
 ```
 
@@ -40,14 +40,15 @@ Now use these commands in terminal
 ```bash
 $ cd folder_name # cd into folder directory where .cs files are
 $ dotnet restore # Restore the dependencies and tools of a project
+$ dotnet ef database update
 $ dotnet run
 ```
 
-## :clown: Frontend
+## 🤡: Frontend
 - Tailwind
 - react-icons
 
-## :space-invader: Backend
+## 👾: Backend
 - ASP.Net
 - Entity Framework
 - MySQL
