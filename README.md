@@ -7,7 +7,7 @@ Main reason is to learn Next.js, Typescript, and practice ASP.Net.
 ## 📉 Performance Speculation
 Probably much better off with either double down on Blazor Server App or Next.js as we won't have to deal with 2 programming languages for 1 project. 
 
-Most cool 'things' for web development are made in JS though and Blazor(net7) does not do a good job of keeping developers away from JS atm.
+Most cool 'things' for web development are made in JS though and Blazor(net7) does not do a good job at keeping developers away from JS atm.
 
 ## :white_check_mark: Requirements
 We are using MySQL in this journey
