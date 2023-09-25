@@ -6,7 +6,8 @@ Main reason is to learn Next.js, Typescript, and practice ASP.Net
 
 ## :bar_chart: Performance Speculation
 Probably much better off with either double down on Blazor Server App or Next.js as we won't have to deal with 2 programming languages for 1 project. 
-Most cool 'thing' for web development is made in JS though.
+
+Most cool 'thing' for web development are made in JS though and Blazor does not do a good job of keeping developers away from JS.
 
 ## :white_check_mark: Requirements
 We are using MySQL in this journey
@@ -41,3 +42,12 @@ $ cd folder_name # cd into folder directory where .cs files are
 $ dotnet restore # Restore the dependencies and tools of a project
 $ dotnet run
 ```
+
+## :clown: Frontend
+- Tailwind
+- react-icons
+
+## :space-invader: Backend
+- ASP.Net
+- Entity Framework
+- MySQL

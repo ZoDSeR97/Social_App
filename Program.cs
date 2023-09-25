@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using Social_App.Models;
-
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
