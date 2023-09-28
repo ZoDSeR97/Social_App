@@ -19,6 +19,10 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="5.2.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
   </ItemGroup>
 
@@ -27,6 +31,21 @@
     <Content Remove="$(SpaRoot)**" />
     <None Remove="$(SpaRoot)**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="client-app\app\%28auth%29\layout.tsx" />
+    <None Remove="client-app\app\%28auth%29\sign-in\[[...sign-in]]\page.tsx" />
+    <None Remove="client-app\app\%28auth%29\sign-up\[[...sign-up]]\page.tsx" />
+    <None Remove="client-app\middleware.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="client-app\app\%28auth%29\onboarding\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="client-app\app\(auth)\layout.tsx" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

@@ -44,11 +44,11 @@ $ dotnet ef database update
 $ dotnet run
 ```
 
-## 🤡: Frontend
+## 🤡 Frontend
 - Tailwind
 - react-icons
 
-## 👾: Backend
+## 👾 Backend
 - ASP.Net
 - Entity Framework
 - MySQL
