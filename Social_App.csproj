@@ -37,11 +37,17 @@
     <None Remove="client-app\app\%28auth%29\layout.tsx" />
     <None Remove="client-app\app\%28auth%29\sign-in\[[...sign-in]]\page.tsx" />
     <None Remove="client-app\app\%28auth%29\sign-up\[[...sign-up]]\page.tsx" />
+    <None Remove="client-app\components\shared\GeneralInfo.tsx" />
+    <None Remove="client-app\components\shared\LeftSideBar.tsx" />
+    <None Remove="client-app\components\shared\Nav.tsx" />
+    <None Remove="client-app\components\shared\RightSideBar.tsx" />
     <None Remove="client-app\middleware.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="client-app\app\%28auth%29\onboarding\" />
+    <Folder Include="client-app\components\cards\" />
+    <Folder Include="client-app\components\forms\" />
   </ItemGroup>
 
   <ItemGroup>
