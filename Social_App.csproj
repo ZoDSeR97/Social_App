@@ -40,6 +40,7 @@
     <None Remove="client-app\components\shared\GeneralInfo.tsx" />
     <None Remove="client-app\components\shared\LeftSideBar.tsx" />
     <None Remove="client-app\components\shared\Nav.tsx" />
+    <None Remove="client-app\components\shared\NavigationLinks.ts" />
     <None Remove="client-app\components\shared\RightSideBar.tsx" />
     <None Remove="client-app\middleware.ts" />
   </ItemGroup>

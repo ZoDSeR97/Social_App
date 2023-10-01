@@ -1,11 +1,11 @@
-import { ClerkProvider } from '@clerk/nextjs'
-import '../globals.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import { Nav } from '../../components/shared/Nav'
-import { LeftSideBar } from '../../components/shared/LeftSideBar'
-import { RightSideBar } from '../../components/shared/RightSideBar'
-import { GeneralInfo } from '../../components/shared/GeneralInfo'
+import { ClerkProvider } from '@clerk/nextjs';
+import '../globals.css';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import { Nav } from '../../components/shared/Nav';
+import { LeftSideBar } from '../../components/shared/LeftSideBar';
+import { RightSideBar } from '../../components/shared/RightSideBar';
+import { GeneralInfo } from '../../components/shared/GeneralInfo';
 
 const inter = Inter({ subsets: ['latin'] })
 

@@ -1,6 +1,6 @@
-﻿import Link from "next/link"
-import Image from "next/image"
-import { SignedIn, SignOutButton, OrganizationSwitcher } from "@clerk/nextjs"
+﻿import Link from "next/link";
+import Image from "next/image";
+import { SignedIn, SignOutButton, OrganizationSwitcher } from "@clerk/nextjs";
 
 export const Nav = () => {
     return (
