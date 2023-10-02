@@ -24,7 +24,7 @@ export default function RootLayout({
             <html lang="en">
                 <body className={inter.className}>
                     <Nav/>
-                    <main className="flex">
+                    <main className="flex flex-row">
                         <LeftSideBar />
                         <section className="main-container">
                             <div className="w-full max-w-4xl">
