@@ -5,7 +5,7 @@ import { Inter } from 'next/font/google';
 import { Nav } from '../../components/shared/Nav';
 import { LeftSideBar } from '../../components/shared/LeftSideBar';
 import { RightSideBar } from '../../components/shared/RightSideBar';
-import { GeneralInfo } from '../../components/shared/GeneralInfo';
+import { MobileNav } from '../../components/shared/MobileNav';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -33,7 +33,7 @@ export default function RootLayout({
                         </section>
                         <RightSideBar/>
                     </main>
-                    <GeneralInfo/>
+                    <MobileNav/>
                 </body>
             </html>
         </ClerkProvider>
