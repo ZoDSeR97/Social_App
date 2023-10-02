@@ -77,6 +77,11 @@
     js-cookie "3.0.1"
     swr "2.2.0"
 
+"@clerk/themes@^1.7.6":
+  version "1.7.6"
+  resolved "https://registry.yarnpkg.com/@clerk/themes/-/themes-1.7.6.tgz#01fa96a6d297744ef8bc335e725df78c62cf7687"
+  integrity sha512-K3nxz3PZX52GmICqKKg/PJ2xtxTOw96Tjxnsb/T4syxMyLmoBBkTnL3Jx96D6zsvSblD+Ujb23z5epSeyQiwtQ==
+
 "@clerk/types@^3.52.1":
   version "3.52.1"
   resolved "https://registry.yarnpkg.com/@clerk/types/-/types-3.52.1.tgz#120416c6eef08839b345bdb2726a027050511ab6"

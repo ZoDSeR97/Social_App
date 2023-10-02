@@ -1,6 +1,7 @@
 ﻿import Link from "next/link";
 import Image from "next/image";
 import { SignedIn, SignOutButton, OrganizationSwitcher } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
 
 export const Nav = () => {
     return (
@@ -19,7 +20,16 @@ export const Nav = () => {
                         </SignedIn>
                     </div>
                 </div>
-                <OrganizationSwitcher/>
+                <OrganizationSwitcher
+                    appearance={
+                        {
+                            baseTheme: dark,
+                            elements: {
+                                organizationSwitcherTrigger: "py-2 px-4"
+                            }
+                        }
+                    }
+                />
             </div>
         </nav>
     )

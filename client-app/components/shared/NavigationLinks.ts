@@ -17,7 +17,7 @@
     {
         imgURL: "",
         route: "/create-post",
-        label: "Create Post",
+        label: "Post",
     },
     {
         imgURL: "",

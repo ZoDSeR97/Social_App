@@ -34,6 +34,7 @@ namespace Social_App.Models
         [Compare("Password")]
         public string PasswordConfirm { get; set; } = string.Empty;
 
+        // Need to look into uploading file
         public string Avatar { get; set; } = string.Empty;
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
