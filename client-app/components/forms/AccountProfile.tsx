@@ -1,7 +1,12 @@
 ﻿"use client"
 
 interface Props {
-    user: {};
+    user: {
+        id: string,
+        first_name: string,
+        last_name: string,
+        username: string
+    };
     btnTitle: string;
 }
 
