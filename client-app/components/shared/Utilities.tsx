@@ -1,4 +1,13 @@
-﻿import { IoDuplicateOutline, IoEarthOutline, IoFitnessOutline, IoHomeOutline, IoLogOutOutline, IoPersonOutline, IoSearchOutline } from "react-icons/io5";
+﻿import {
+    IoDuplicateOutline,
+    IoEarthOutline,
+    IoFitnessOutline,
+    IoHomeOutline,
+    IoLogOutOutline,
+    IoPersonOutline,
+    IoSearchOutline
+} from "react-icons/io5";
+
 export const navigationLinks = [
     {
         imgURL: "IoHomeOutline",

@@ -3,9 +3,9 @@
 interface Props {
     user: {
         id: string,
-        first_name: string,
-        last_name: string,
-        username: string
+        FirstName: string,
+        LastName: string,
+        Username: string
     };
     btnTitle: string;
 }

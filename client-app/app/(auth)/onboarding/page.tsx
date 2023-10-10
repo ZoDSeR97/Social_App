@@ -8,9 +8,9 @@ export default async function Page() {
 
     const userData = {
         id: user?.id || "",
-        first_name: "",
-        last_name: "",
-        username: "",
+        FirstName: "",
+        LastName: "",
+        Username: "",
         avatar: user?.imageUrl
     };
 

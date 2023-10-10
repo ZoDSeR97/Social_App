@@ -7,7 +7,7 @@ namespace Social_App.Models
     public class User
     {
         [Key]
-        public int UserId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [Display(Name = "First Name")]
@@ -41,7 +41,7 @@ namespace Social_App.Models
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
 
         //Navigation Properties
-       
+        public List<User> Followers { get; set; } = new List<User>();
 
     }
 }
