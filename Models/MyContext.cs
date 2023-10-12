@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Reflection.Metadata;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
@@ -19,5 +20,23 @@ namespace Social_App.Models
         public DbSet<Like> Likes { get; set; }
         public DbSet<Member> Members { get; set; }
         public DbSet<Follow> Follows { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // For Self-Reference
+            modelBuilder.Entity<Follow>()
+                .HasOne(u => u.Followee)
+                .WithMany(u => u.Followers)
+                .HasForeignKey(u => u.FollowerId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Follow>()
+                .HasOne(u => u.Follower)
+                .WithMany(u => u.Follows)
+                .HasForeignKey(u => u.FolloweeId)
+                .OnDelete(DeleteBehavior.Restrict);
+        }
     }
 }

@@ -1,5 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using Social_App.Models;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Reflection.Emit;
 
 namespace Social_App.Models
 {
@@ -8,14 +11,13 @@ namespace Social_App.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
-        public int FanId { get; set; }
+        public int FollowerId { get; set; }
 
-        [Required]
-        public int IdolId { get; set; }
+        public int FolloweeId { get; set; }
 
         // Navigation Properties
-        public User? Fan { get; set; }
-        public User? Idol { get; set; }
+        public User? Follower { get; set; }
+        public User? Followee { get; set; }
     }
 }
+
