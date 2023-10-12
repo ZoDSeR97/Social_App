@@ -16,5 +16,8 @@ namespace Social_App.Models
         public DbSet<User> Users { get; set; }
         public DbSet<Community> Communities { get; set; }
         public DbSet<Post> Posts { get; set; }
+        public DbSet<Like> Likes { get; set; }
+        public DbSet<Member> Members { get; set; }
+        public DbSet<Follow> Follows { get; set; }
     }
 }

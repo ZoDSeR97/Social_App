@@ -41,7 +41,11 @@ namespace Social_App.Models
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
 
         //Navigation Properties
-        public List<User> Followers { get; set; } = new List<User>();
-
+        public List<Post> Posts { get; set; } = new List<Post>();
+        public List<Like> Liked { get; set; } = new List<Like>();
+        public List<Community> Communities { get; set; } = new List<Community>();
+        public List<Member> Members { get; set; } = new List<Member>();
+        public List<Follow> Followers { get; set; } = new List<Follow>();
+        public List<Follow> Follows { get; set;} = new List<Follow>();
     }
 }

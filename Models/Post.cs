@@ -12,8 +12,6 @@ namespace Social_App.Models
         [MinLength(10)]
         public string Content { get; set; } = string.Empty;
 
-        public int Likes { get; set; } = 0;
-
         public int Replies { get; set; } = 0;
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
@@ -21,6 +19,6 @@ namespace Social_App.Models
 
         // Navigation Links
         public User? Creator { get; set; }
-        public List<User> LikedBy { get; set; } = new List<User>();
+        public List<Like> Likes { get; set; } = new List<Like>();
     }
 }
