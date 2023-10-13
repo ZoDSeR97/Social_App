@@ -1,0 +1,67 @@
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Social_App.Models;
+
+// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+namespace Social_App.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class UsersController : ControllerBase
+    {
+        MyContext _context;
+        public UsersController(MyContext context)
+        {
+            _context = context;
+        }
+
+        // GET: api/<UserController>
+        [HttpGet]
+        public IEnumerable<string> Get()
+        {
+            return new string[] { "value1", "value2" };
+        }
+
+        // GET api/<UserController>/5
+        [HttpGet("{id}")]
+        public ActionResult Get(int id)
+        {
+            return BadRequest();
+        }
+
+        // POST api/<UserController>
+        [HttpPost]
+        public ActionResult Post([FromBody] User newUser)
+        {
+            if (ModelState.IsValid)
+            {
+                if (!_context.Users.Any(record => record.Email == newUser.Email))
+                {
+                    if (_context.Users.Any(record => record.Username == newUser.Username))
+                        return BadRequest("Username is in-use");
+                    PasswordHasher<User> Hasher = new PasswordHasher<User>();
+                    // Updating our newUser's password to a hashed version         
+                    newUser.Password = Hasher.HashPassword(newUser, newUser.Password);
+                    _context.Add(newUser);
+                    _context.SaveChanges();
+                    return Ok(newUser);
+                }
+                return BadRequest("Email is in-use");
+            }
+            return NotFound("Invalid Information");
+        }
+
+        // PUT api/<UserController>/5
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody] string value)
+        {
+        }
+
+        // DELETE api/<UserController>/5
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+        }
+    }
+}

@@ -29,14 +29,12 @@ namespace Social_App.Models
             modelBuilder.Entity<Follow>()
                 .HasOne(u => u.Followee)
                 .WithMany(u => u.Followers)
-                .HasForeignKey(u => u.FollowerId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .HasForeignKey(u => u.FollowerId);
 
             modelBuilder.Entity<Follow>()
                 .HasOne(u => u.Follower)
                 .WithMany(u => u.Follows)
-                .HasForeignKey(u => u.FolloweeId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .HasForeignKey(u => u.FolloweeId);
         }
     }
 }

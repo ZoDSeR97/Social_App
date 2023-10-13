@@ -20,6 +20,10 @@ namespace Social_App.Models
         public string LastName { get; set; } = string.Empty;
 
         [Required]
+        [MinLength(2)]
+        public string Username { get; set; } = string.Empty;
+
+        [Required]
         [EmailAddress]
         public string Email { get; set; } = string.Empty;
 
@@ -33,6 +37,8 @@ namespace Social_App.Models
         [Display(Name = "Confirm Password")]
         [Compare("Password")]
         public string PasswordConfirm { get; set; } = string.Empty;
+
+        public string bio { get; set; } = string.Empty;
 
         // Need to look into uploading file
         public string Avatar { get; set; } = string.Empty;

@@ -1,8 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Social_App.Models;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Reflection.Emit;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Social_App.Models
 {
