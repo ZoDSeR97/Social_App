@@ -7,19 +7,19 @@ import { getIconComponent } from "./Utilities";
 export const Nav = () => {
     return (
         <nav className="topbar">
-            <div>
-                <Link href="/" className="flex items-center gap-1">
-                    <Image src="/logo.svg" alt="logo" width={40} height={40} className="App-logo"/>
-                    <h1 className="text-heading3-bold text-light-1 max-xs:hidden">Social App</h1>
-                </Link>
-                <div className="flex items-center gap-1">
-                    <div className="block md:hidden">
-                        <SignedIn>
-                            <SignOutButton>
+            <Link href="/" className="flex items-center gap-1">
+                <Image src="/logo.svg" alt="logo" width={40} height={40} className="App-logo"/>
+                <h1 className="text-heading3-bold text-light-1 max-xs:hidden">Social App</h1>
+            </Link>
+            <div className="flex items-center gap-1">
+                <div className="block lg:hidden">
+                    <SignedIn>
+                        <SignOutButton>
+                            <div className='flex cursor-pointer'>
                                 {getIconComponent("IoLogOutOutline")}
-                            </SignOutButton>
-                        </SignedIn>
-                    </div>
+                            </div>
+                        </SignOutButton>
+                    </SignedIn>
                 </div>
                 <OrganizationSwitcher
                     appearance={

@@ -1,17 +1,22 @@
 ﻿import { AccountProfile } from "@/components/forms/AccountProfile";
 import { currentUser } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
 
 export default async function Page() {
     const user = await currentUser();
+    if (!user) return null;
 
-    const userInfo = {};
+    const userInfo = await fetch(`http://localhost:5030/api/User/${user.id}`);
+    if (userInfo.ok) redirect("/");
 
     const userData = {
         id: user?.id || "",
-        first_name: "",
-        last_name: "",
-        username: "",
-        avatar: user?.imageUrl
+        first_name: user?.firstName || "",
+        last_name: user?.lastName || "",
+        username: user?.username || user?.emailAddresses[0].emailAddress.split('@')[0] || "",
+        email: user?.emailAddresses[0].emailAddress || "",
+        bio: "",
+        image: user?.imageUrl || ""
     };
 
     return (

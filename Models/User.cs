@@ -9,6 +9,10 @@ namespace Social_App.Models
         [Key]
         public int Id { get; set; }
 
+        /* Loosely handshake */
+        [Required]
+        public string Clerk_Id { get; set; } = string.Empty;
+
         [Required]
         [Display(Name = "First Name")]
         [MinLength(2)]
@@ -38,7 +42,7 @@ namespace Social_App.Models
         [Compare("Password")]
         public string PasswordConfirm { get; set; } = string.Empty;
 
-        public string bio { get; set; } = string.Empty;
+        public string Bio { get; set; } = string.Empty;
 
         // Need to look into uploading file
         public string Avatar { get; set; } = string.Empty;

@@ -11,7 +11,7 @@ using Social_App.Models;
 namespace Social_App.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20231013045112_FirstMigration")]
+    [Migration("20231017211134_FirstMigration")]
     partial class FirstMigration
     {
         /// <inheritdoc />
@@ -19,7 +19,7 @@ namespace Social_App.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.11")
+                .HasAnnotation("ProductVersion", "7.0.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("Social_App.Models.Community", b =>
@@ -150,6 +150,14 @@ namespace Social_App.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("Bio")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Clerk_Id")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
 
@@ -173,10 +181,6 @@ namespace Social_App.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Username")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("bio")
                         .IsRequired()
                         .HasColumnType("longtext");
 

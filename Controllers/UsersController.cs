@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Social_App.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -18,15 +19,18 @@ namespace Social_App.Controllers
 
         // GET: api/<UserController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public ActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            // Not letting anyone get all users info
+            return BadRequest();
         }
 
         // GET api/<UserController>/5
         [HttpGet("{id}")]
-        public ActionResult Get(int id)
+        public ActionResult Get(string id)
         {
+            User? user = _context.Users.FirstOrDefault(record => record.Clerk_Id == id);
+            if (user != null) return Ok(user);
             return BadRequest();
         }
 

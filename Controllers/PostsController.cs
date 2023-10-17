@@ -17,22 +17,31 @@ namespace Social_App.Controllers
 
         // GET: api/<PostController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Post> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _context.Posts.ToList();
         }
 
         // GET api/<PostController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult Get(int id)
         {
-            return "value";
+            Post? post = _context.Posts.FirstOrDefault(record => record.Id == id);
+            if (post != null) return Ok(post);
+            return BadRequest();
         }
 
         // POST api/<PostController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] Post post)
         {
+            if (ModelState.IsValid)
+            {
+                _context.Posts.Add(post);
+                _context.SaveChanges();
+                return Ok(post);
+            }
+            return BadRequest();
         }
 
         // PUT api/<PostController>/5

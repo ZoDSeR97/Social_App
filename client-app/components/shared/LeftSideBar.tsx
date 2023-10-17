@@ -28,9 +28,12 @@ export const LeftSideBar = () => {
             </div>
             <div className="mt-10 px-6">
                 <SignedIn>
-                    <SignOutButton signOutCallback={ () => router.push("/sign-in") }>
-                        {getIconComponent("IoLogOutOutline")}
-                        <p className="text-light-1 max-lg:hidden">Logout</p>
+                    <SignOutButton signOutCallback={() => router.push("/sign-in")}>
+                        <div className='flex cursor-pointer gap-4 p-4'>
+                            {getIconComponent("IoLogOutOutline")}
+                            <p className="text-light-1 max-lg:hidden">Logout</p>
+                        </div>
+                        
                     </SignOutButton>
                 </SignedIn>
             </div>
