@@ -11,7 +11,7 @@ using Social_App.Models;
 namespace Social_App.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20231017211134_FirstMigration")]
+    [Migration("20231020145556_FirstMigration")]
     partial class FirstMigration
     {
         /// <inheritdoc />
@@ -21,6 +21,28 @@ namespace Social_App.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
+
+            modelBuilder.Entity("Social_App.Models.Comment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("OpId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ReplyId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OpId");
+
+                    b.HasIndex("ReplyId")
+                        .IsUnique();
+
+                    b.ToTable("Comments");
+                });
 
             modelBuilder.Entity("Social_App.Models.Community", b =>
                 {
@@ -127,9 +149,6 @@ namespace Social_App.Migrations
                     b.Property<int?>("CreatorId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Replies")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime(6)");
 
@@ -187,6 +206,25 @@ namespace Social_App.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Social_App.Models.Comment", b =>
+                {
+                    b.HasOne("Social_App.Models.Post", "Op")
+                        .WithMany("Comments")
+                        .HasForeignKey("OpId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Social_App.Models.Post", "Reply")
+                        .WithOne("Op")
+                        .HasForeignKey("Social_App.Models.Comment", "ReplyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Op");
+
+                    b.Navigation("Reply");
                 });
 
             modelBuilder.Entity("Social_App.Models.Community", b =>
@@ -271,7 +309,11 @@ namespace Social_App.Migrations
 
             modelBuilder.Entity("Social_App.Models.Post", b =>
                 {
+                    b.Navigation("Comments");
+
                     b.Navigation("Likes");
+
+                    b.Navigation("Op");
                 });
 
             modelBuilder.Entity("Social_App.Models.User", b =>

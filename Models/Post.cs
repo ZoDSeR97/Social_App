@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Social_App.Models
 {
@@ -11,13 +12,13 @@ namespace Social_App.Models
         [MinLength(10)]
         public string Content { get; set; } = string.Empty;
 
-        public int Replies { get; set; } = 0;
-
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
 
-        // Navigation Links
+        // Navigation Properties
         public User? Creator { get; set; }
         public List<Like> Likes { get; set; } = new List<Like>();
+        public List<Comment> Comments { get; set;} = new List<Comment>();
+        public Comment? Op { get; set; }
     }
 }

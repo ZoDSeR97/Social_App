@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Reflection.Metadata;
+using Humanizer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
@@ -20,21 +21,46 @@ namespace Social_App.Models
         public DbSet<Like> Likes { get; set; }
         public DbSet<Member> Members { get; set; }
         public DbSet<Follow> Follows { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            // For Self-Reference
+            // For Self-Reference Many-to-Many
+            // One-to-Many Relationship (User to Follow)
             modelBuilder.Entity<Follow>()
                 .HasOne(u => u.Followee)
                 .WithMany(u => u.Followers)
-                .HasForeignKey(u => u.FollowerId);
+                .HasForeignKey(u => u.FollowerId)
+                .OnDelete(DeleteBehavior.Cascade); // Cascade delete;
 
+            // One-to-Many Relationship (Follow to User)
             modelBuilder.Entity<Follow>()
                 .HasOne(u => u.Follower)
                 .WithMany(u => u.Follows)
-                .HasForeignKey(u => u.FolloweeId);
+                .HasForeignKey(u => u.FolloweeId)
+                .OnDelete(DeleteBehavior.Cascade);
+            
+            /**
+             * Tried to configure a unique relationship
+             * Post has many Comment
+             * Post has one to one Comment
+             * MySQL workbench shows this as double many to many :(
+             */
+            // One-to-Many Relationship (Comment to Post)
+            modelBuilder.Entity<Comment>()
+                .HasOne(c => c.Op)
+                .WithMany(p => p.Comments)
+                .HasForeignKey(c => c.OpId)
+                .OnDelete(DeleteBehavior.Cascade); 
+
+            // One-to-One Relationship (Post to Comment)
+            modelBuilder.Entity<Post>()
+                .HasOne(p => p.Op)
+                .WithOne(c => c.Reply)
+                .HasForeignKey<Comment>(c => c.ReplyId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
