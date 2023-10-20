@@ -12,9 +12,13 @@ Most cool 'things' for web development are made in JS though and Blazor(.Net7) d
 ## ☢️ Loosely connection
 At the moment the backend connect to front end through ID generated from Clerk. 
 
+Backend and Frontend Handshake through Clerk JWT
+
 This should be sufficient for now.
 
-Supposely Back end and Front end need to connect through JWT but there are lack of official documentations on ASP.Net.
+<strike>Supposely Back end and Front end need to connect through JWT but there are lack of official documentations on ASP.Net.</strike> 
+
+(We are no longer relies on ASP.Net to generate its own JWT, only Authenticate JWT from our Clerk or not)
 
 ## :white_check_mark: Requirements
 We are using MySQL in this journey
