@@ -1,7 +1,6 @@
 ﻿import Link from "next/link";
 import Image from "next/image";
-import { SignedIn, SignOutButton, OrganizationSwitcher } from "@clerk/nextjs";
-import { dark } from "@clerk/themes";
+import { SignedIn, SignOutButton, UserButton } from "@clerk/nextjs";
 import { getIconComponent } from "./Utilities";
 
 export const Nav = () => {
@@ -14,23 +13,9 @@ export const Nav = () => {
             <div className="flex items-center gap-1">
                 <div className="block lg:hidden">
                     <SignedIn>
-                        <SignOutButton>
-                            <div className='flex cursor-pointer'>
-                                {getIconComponent("IoLogOutOutline")}
-                            </div>
-                        </SignOutButton>
+                        <UserButton />
                     </SignedIn>
                 </div>
-                <OrganizationSwitcher
-                    appearance={
-                        {
-                            baseTheme: dark,
-                            elements: {
-                                organizationSwitcherTrigger: "py-2 px-4"
-                            }
-                        }
-                    }
-                />
             </div>
         </nav>
     )

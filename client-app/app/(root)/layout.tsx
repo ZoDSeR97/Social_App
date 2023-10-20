@@ -6,6 +6,7 @@ import { Nav } from '../../components/shared/Nav';
 import { LeftSideBar } from '../../components/shared/LeftSideBar';
 import { RightSideBar } from '../../components/shared/RightSideBar';
 import { MobileNav } from '../../components/shared/MobileNav';
+import { dark } from '@clerk/themes';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,7 +21,11 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <ClerkProvider>
+        <ClerkProvider appearance={
+            {
+                baseTheme: dark,
+            }
+        }>
             <html lang="en">
                 <body className={inter.className}>
                     <Nav/>

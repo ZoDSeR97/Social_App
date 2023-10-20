@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Social_App.Models;
@@ -18,7 +19,7 @@ namespace Social_App.Controllers
         }
 
         // GET: api/<UserController>
-        [HttpGet]
+        [HttpGet, Authorize]
         public ActionResult Get()
         {
             // Not letting anyone get all users info
@@ -26,7 +27,7 @@ namespace Social_App.Controllers
         }
 
         // GET api/<UserController>/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}"), Authorize]
         public ActionResult Get(string id)
         {
             User? user = _context.Users.FirstOrDefault(record => record.Clerk_Id == id);
@@ -35,7 +36,7 @@ namespace Social_App.Controllers
         }
 
         // POST api/<UserController>
-        [HttpPost]
+        [HttpPost, Authorize]
         public ActionResult Post([FromBody] User newUser)
         {
             if (ModelState.IsValid)
@@ -57,13 +58,13 @@ namespace Social_App.Controllers
         }
 
         // PUT api/<UserController>/5
-        [HttpPut("{id}")]
+        [HttpPut("{id}"), Authorize]
         public void Put(int id, [FromBody] string value)
         {
         }
 
         // DELETE api/<UserController>/5
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}"), Authorize]
         public void Delete(int id)
         {
         }

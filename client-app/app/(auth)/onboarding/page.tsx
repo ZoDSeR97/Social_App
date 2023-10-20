@@ -1,6 +1,7 @@
 ﻿import { AccountProfile } from "@/components/forms/AccountProfile";
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
+import Cookies from "cookies";
 
 export default async function Page() {
     const user = await currentUser();

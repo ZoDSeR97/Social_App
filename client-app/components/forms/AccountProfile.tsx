@@ -1,10 +1,10 @@
 ﻿"use client"
 
-import { FormEvent, useState } from "react";
+import { FormEvent } from "react";
 import { redirect } from "next/navigation";
 import Image from "next/image";
 import { UserValidation } from "@/lib/validations/user";
-import { getIconComponent } from "../shared/Utilities";
+import { getIconComponent } from "@/components/shared/Utilities";
 
 interface Props {
     user: {
@@ -19,8 +19,9 @@ interface Props {
     btnTitle: string,
 }
 
+// Apparently Next.js don't like hook in client component
+// Contradict with React
 export const AccountProfile = async ({ user, btnTitle }: Props) => {
-    const [file, setFile] = useState("");
 
     const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -43,7 +44,7 @@ export const AccountProfile = async ({ user, btnTitle }: Props) => {
             // Handle response if necessary
             const data = await response.json();
             // ...
-            if (!data.ok) {
+            if (data.ok) {
                 redirect(`/`);
             }
         }
@@ -88,7 +89,7 @@ export const AccountProfile = async ({ user, btnTitle }: Props) => {
                                         type="text"
                                         name="username"
                                         id="username"
-                                        value={user?.username}
+                                        defaultValue={ user?.username }
                                         autoComplete="username"
                                         className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-white placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                                         placeholder="username"
@@ -107,6 +108,7 @@ export const AccountProfile = async ({ user, btnTitle }: Props) => {
                                     name="bio"
                                     rows={3}
                                     className="account-form_input"
+                                    defaultValue={''}
                                 />
                             </div>
                             <p className="mt-3 text-sm leading-6 text-gray-400">Write a few sentences about yourself.</p>
@@ -127,7 +129,7 @@ export const AccountProfile = async ({ user, btnTitle }: Props) => {
                                     type="text"
                                     name="first-name"
                                     id="first-name"
-                                    value={ user?.first_name }
+                                    defaultValue={ user?.first_name }
                                     autoComplete="given-name"
                                     className="account-form_input"
                                 />
@@ -143,7 +145,7 @@ export const AccountProfile = async ({ user, btnTitle }: Props) => {
                                     type="text"
                                     name="last-name"
                                     id="last-name"
-                                    value={user?.last_name}
+                                    defaultValue={ user?.last_name }
                                     autoComplete="family-name"
                                     className="account-form_input"
                                 />
@@ -159,7 +161,7 @@ export const AccountProfile = async ({ user, btnTitle }: Props) => {
                                     id="email"
                                     name="email"
                                     type="email"
-                                    value={user?.email}
+                                    defaultValue={ user?.email }
                                     autoComplete="email"
                                     className="account-form_input"
                                 />
